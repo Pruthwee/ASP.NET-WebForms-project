@@ -1,0 +1,65 @@
+@page
+@model Films.Web.Pages.Movies.CreateModel
+@{
+    ViewData["Title"] = "Create Film";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0"><i class="bi bi-film"></i> Create New Film</h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Film.Title" class="form-label"></label>
+                            <input asp-for="Film.Title" class="form-control" placeholder="Enter film title" />
+                            <span asp-validation-for="Film.Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Film.Year" class="form-label"></label>
+                                    <input asp-for="Film.Year" class="form-control" placeholder="e.g., 2024" />
+                                    <span asp-validation-for="Film.Year" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label asp-for="Film.RunningTime" class="form-label"></label>
+                                    <input asp-for="Film.RunningTime" class="form-control" placeholder="e.g., 120" />
+                                    <span asp-validation-for="Film.RunningTime" class="text-danger"></span>
+                                    <small class="form-text text-muted">Duration in minutes</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Film.Genre" class="form-label"></label>
+                            <input asp-for="Film.Genre" class="form-control" placeholder="e.g., Action, Drama, Comedy" />
+                            <span asp-validation-for="Film.Genre" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a asp-page="./Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Back to List
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Create Film
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
